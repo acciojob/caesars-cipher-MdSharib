@@ -33,10 +33,12 @@ const lookup = {
 
 function rot13(encodedStr) {
   let decodedArr = []; // Your Result goes here
+  let decodedArr2 = []; // Your Result goes here
+  
   // Only change code below this line
   for(let i=0; i<encodedStr.length; i++){
     if(encodedStr[i] === ' '){
-      decodedArr.push(' ');
+      decodedArr2.push(' ');
       continue;
     }
     
@@ -45,15 +47,24 @@ function rot13(encodedStr) {
     if(curr < 65 || curr > 90){
       curr2 = 64 + (13 - (90 - curr2));
       let ch = String.fromCharCode(curr2);
-      decodedArr.push(ch);
+      decodedArr2.push(ch);
     }else {
       let ch = String.fromCharCode(curr);
-      decodedArr.push(ch);
+      decodedArr2.push(ch);
     }
     
   }
+  
+  for(let i=0; i<decodedArr2.length; i++){
+    let currString = "";
+    while(i< decodedArr2.length && decodedArr2[i] !== " "){
+      currString +=decodedArr2[i];
+      i++;
+    }
+    decodedArr.push(currString);
+  }
   // console.log(encodedStr[3] === ' ');
-  return decodedArr.toString(); //return decodedArr
+  return decodedArr; //return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
