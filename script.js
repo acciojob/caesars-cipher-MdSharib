@@ -53,7 +53,7 @@ function rot13(encodedStr) {
     
   }
   // console.log(encodedStr[3] === ' ');
-  return decodedArr; //return decodedArr
+  return decodedArr.toString(); //return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
