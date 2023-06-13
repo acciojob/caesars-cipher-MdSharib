@@ -35,10 +35,24 @@ function rot13(encodedStr) {
   let decodedArr = []; // Your Result goes here
   // Only change code below this line
   for(let i=0; i<encodedStr.length; i++){
-    let curr = String.fromCharCode(encodedStr.charCodeAt(i) + 13);
-    decodedArr.push(curr);
+    if(encodedStr[i] === ' '){
+      decodedArr.push(' ');
+      continue;
+    }
+    
+    let curr = encodedStr.charCodeAt(i) + 13;
+    let curr2 = encodedStr.charCodeAt(i);
+    if(curr < 65 || curr > 90){
+      curr2 = 64 + (13 - (90 - curr2));
+      let ch = String.fromCharCode(curr2);
+      decodedArr.push(ch);
+    }else {
+      let ch = String.fromCharCode(curr);
+      decodedArr.push(ch);
+    }
+    
   }
-  // console.log(char);
+  // console.log(encodedStr[3] === ' ');
   return decodedArr; //return decodedArr
 }
 
